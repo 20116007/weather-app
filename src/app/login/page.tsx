@@ -37,8 +37,9 @@ export default function Login() {
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-slate-400/20 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-        <div className="w-full max-w-md">
+      {/* Changed flex layout for better mobile usability */}
+      <div className="relative z-10 min-h-screen px-4 py-8 flex flex-col justify-center">
+        <div className="w-full max-w-md mx-auto">
           {/* 3D Card Container */}
           <div className="group perspective-1000">
             <div className="relative transform-gpu transition-all duration-700 preserve-3d group-hover:rotate-y-6">
