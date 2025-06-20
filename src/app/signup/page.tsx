@@ -40,16 +40,22 @@ export default function Signup() {
     }
   }
 
+  // Helper for scrollIntoView on focus
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+    <div className="min-h-screen overflow-y-auto relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-72 h-72 bg-indigo-400/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-slate-400/20 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-        <div className="w-full max-w-md">
+      {/* Improved flex layout for mobile usability */}
+      <div className="relative z-10 px-4 py-8 flex flex-col justify-center">
+        <div className="w-full max-w-md mx-auto pb-32">
           {/* Progress Indicator */}
           <div className="mb-8">
             <div className="flex justify-center space-x-4">
@@ -101,6 +107,7 @@ export default function Signup() {
                             placeholder="Your full name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            onFocus={handleFocus}
                             className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-400/50 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                             required
                           />
@@ -146,6 +153,7 @@ export default function Signup() {
                             placeholder="Email address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            onFocus={handleFocus}
                             className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-indigo-400/50 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                             required
                           />
@@ -160,6 +168,7 @@ export default function Signup() {
                             placeholder="Create password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            onFocus={handleFocus}
                             className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-400/50 focus:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                             required
                           />
